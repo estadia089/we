@@ -19,6 +19,7 @@
             color: #333;
         }
 
+        /* Estilos de Escritorio */
         .carousel h1 { 
             font-family: "DM Serif Text", serif;
             font-weight: 400;
@@ -48,32 +49,36 @@
             width: 90%;
             text-align: center;
         }
+        
         h3 {
-    font-family: "Cinzel Decorative", cursive;
-    text-align: center;
-    color: black; 
-    font-size: 2.5em; 
-    margin: 30px 0 20px 0; 
-    text-transform: capitalize; 
-    letter-spacing: 2px;
-    font-weight: 700; 
-}
+            font-family: "Cinzel Decorative", cursive;
+            text-align: center;
+            color: black; 
+            font-size: 2.5em; 
+            margin: 30px 0 20px 0; 
+            text-transform: capitalize; 
+            letter-spacing: 2px;
+            font-weight: 700; 
+        }
 
         .carousel { 
             position: relative;
             overflow: hidden;
             height: 650px; 
         }
+        
+        /* Por defecto, usamos cover para Escritorio */
         .carousel img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; 
             opacity: 0;
             transition: opacity 1.2s ease-in-out;
             position: absolute;
             top: 0;
             left: 0;
         }
+        
         .carousel img.active {
             opacity: 1;
         }
@@ -107,7 +112,7 @@
             width: auto;
         }
         header img:nth-child(2) {
-            height: 80px; /
+            height: 80px; 
         }
         .menu-principal {
             text-align: center;
@@ -129,78 +134,78 @@
         }
 
         
-.menus {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 15px;
-    padding: 20px;
-    justify-content: center;
-}
+        .menus {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px;
+            padding: 20px;
+            justify-content: center;
+        }
 
-.menus div {
-    position: relative; 
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(8, 114, 96, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-    cursor: pointer; 
-    background: rgba(255, 255, 255, 0.863);
-    text-align: center;
-    padding: 20px;
-     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
-}
-.menus div:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
-    background: #00867b; 
-}
+        .menus div {
+            position: relative; 
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(8, 114, 96, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            cursor: pointer; 
+            background: rgba(255, 255, 255, 0.863);
+            text-align: center;
+            padding: 20px;
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+        }
+        .menus div:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
+            background: #00867b; 
+        }
 
-.menus div a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10; 
-    text-decoration: none;
-    display: block;
-    margin: 0;
-    padding: 0;
-    color: transparent !important; 
-    background: transparent !important;
-}
-
-
-.menus div strong {
-    font-weight: bold;
-    color: #004d40; 
-    font-size: 1.2em;
-    display: block;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-    text-align: center;
-    position: relative; 
-    z-index: 1; 
-}
-
-.menus div:hover strong {
-    color: #000000; 
-}
+        .menus div a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10; 
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            color: transparent !important; 
+            background: transparent !important;
+        }
 
 
-.menus p {
-    margin: 5px 0;
-    color: #000000; 
-    text-align: left;
-    position: relative;
-    z-index: 1; 
-    font-size: 1em;
-    transition: color 0.3s;
-}
+        .menus div strong {
+            font-weight: bold;
+            color: #004d40; 
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+            text-align: center;
+            position: relative; 
+            z-index: 1; 
+        }
 
-.menus div:hover p {
-    color: #FFFFFF; 
-}
+        .menus div:hover strong {
+            color: #000000; 
+        }
+
+
+        .menus p {
+            margin: 5px 0;
+            color: #000000; 
+            text-align: left;
+            position: relative;
+            z-index: 1; 
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        .menus div:hover p {
+            color: #FFFFFF; 
+        }
 
         .recomendaciones {
             background: rgba(0,77,64,0.9);
@@ -244,6 +249,7 @@
             transform: scale(1.2);
         }
 
+        /* --- AJUSTES PARA MÓVILES (MAX 768px) --- */
         @media (max-width: 768px) {
             /* === HEADER AJUSTES === */
             header {
@@ -257,20 +263,26 @@
                 height: 50px; 
             }
 
-            /* === CARRUSEL Y TEXTO DENTRO AJUSTES (MODIFICADO) === */
+            /* === CARRUSEL MODIFICADO PARA IMAGEN COMPLETA === */
+            
             .carousel {
-                /* Aumentamos la altura para tener más espacio y evitar el recorte del texto grande de la imagen */
-                height: 480px; 
+                /* Aumentamos la altura para mejorar la visibilidad sin que sea demasiado grande */
+                height: 350px; 
+            }
+            
+            /* Cambiamos a 'contain' para mostrar la imagen completa, conservando su relación de aspecto. */
+            .carousel img {
+                object-fit: contain; 
             }
             
             .carousel h1 { 
-                font-size: 38px; 
-                top: 25%; /* Subimos el título para que no choque con el texto de la imagen de Tenosique */
+                font-size: 30px; /* Reducimos el tamaño de la fuente para que no estorbe */
+                top: 15%; /* Subimos el título */
                 white-space: normal;
             }
             .carousel p { 
-                font-size: 20px;
-                top: 40%; /* Subimos el subtítulo también */
+                font-size: 18px; /* Reducimos el tamaño de la fuente */
+                top: 25%; /* Subimos el subtítulo */
             }
             
             /* === TÍTULO H3 AJUSTES === */
@@ -303,13 +315,13 @@
     </header>
 
     <section class="carousel">
-  <img src="letra_tenosique.jpg" class="active" alt="Tren Maya 1">
-    <img src="TREN.jpeg" alt="Tren Maya 2">
-    <img src="atardecer.png" alt="Tren Maya 3">
-    <img src="Estación Tren Maya en diferentes momentos (1).png" alt="Tren Maya 4">
-    <img src="tren1.jpg" alt="Tren Maya 5">
-    <img src="tren3.jpg" alt="Tren Maya 6">
- 
+        <img src="letra_tenosique.jpg" class="active" alt="Tren Maya 1">
+        <img src="TREN.jpeg" alt="Tren Maya 2">
+        <img src="atardecer.png" alt="Tren Maya 3">
+        <img src="Estación Tren Maya en diferentes momentos (1).png" alt="Tren Maya 4">
+        <img src="tren1.jpg" alt="Tren Maya 5">
+        <img src="tren3.jpg" alt="Tren Maya 6">
+    
         
         <h1>TREN MAYA</h1>
         <p>Estación Tenosique</p>
@@ -321,43 +333,39 @@
     <h3>Elige tu tarifa correspondiente</h3>
 
     <section class="menus">
-      <div>
-        <a href="turista-especial.html"></a> 
-        <strong>Turista Especial</strong>
-        <p>Personas que cuenten con credenciales vigentes de: Maestros, Estudiantes, INAPAM, ISSFAM y SEDENA.</p>
-    </div>
-    <div>
-        <a href="turista-local.html"></a> 
-        <strong>Turista Local</strong>
-        <p>Personas que cuenten con INE emitida en los estados de: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
-    </div>
-    <div>
-        <a href="turista_nacional.html"></a> 
-        
-        <strong>Turista Nacional</strong>
-        <p>Personas que cuenten con INE emitida en cualquier otro estado distinto a: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
-    </div>
-    <div>
-        <a href="turista-internacional.html"></a> 
-        <strong>Turista Internacional</strong>
-        <p>Persona con nacionalidad extranjera, que cuenten con Pasaporte o Residencia Permanente vigente.</p>
-    </div>
-    <div>
-        <a href="premier_nacional.html"></a> 
-        <strong>Premier Nacional</strong>
-        <p>Categoría más alta para los mexicanos, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
-    </div>
+        <div>
+            <a href="turista-especial.html"></a> 
+            <strong>Turista Especial</strong>
+            <p>Personas que cuenten con credenciales vigentes de: Maestros, Estudiantes, INAPAM, ISSFAM y SEDENA.</p>
+        </div>
+        <div>
+            <a href="turista-local.html"></a> 
+            <strong>Turista Local</strong>
+            <p>Personas que cuenten con INE emitida en los estados de: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
+        </div>
+        <div>
+            <a href="turista_nacional.html"></a> 
+            
+            <strong>Turista Nacional</strong>
+            <p>Personas que cuenten con INE emitida en cualquier otro estado distinto a: Chiapas, Tabasco, Campeche, Yucatán, Quintana Roo.</p>
+        </div>
+        <div>
+            <a href="turista-internacional.html"></a> 
+            <strong>Turista Internacional</strong>
+            <p>Persona con nacionalidad extranjera, que cuenten con Pasaporte o Residencia Permanente vigente.</p>
+        </div>
+        <div>
+            <a href="premier_nacional.html"></a> 
+            <strong>Premier Nacional</strong>
+            <p>Categoría más alta para los mexicanos, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
+        </div>
 
-    <div>
-        <a href="Premier-Internacional.html"></a> 
-        <strong>Premier Internacional</strong>
-        <p>Categoría más alta para los extranjeros, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
-    </div>
-
-    
-
-    
-</section>
+        <div>
+            <a href="premier-internacional.html"></a> 
+            <strong>Premier Internacional</strong>
+            <p>Categoría más alta para los extranjeros, con: Servicio de Catering, Asientos más amplios y cómodos.</p>
+        </div>
+    </section>
 
     <section class="recomendaciones">
         <p><strong>Horario de atención:</strong> 7:00 am - 6:00 pm</p>
