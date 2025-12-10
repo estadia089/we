@@ -248,68 +248,65 @@
         footer img:hover {
             transform: scale(1.2);
         }
-/* ... (Todo el CSS de escritorio se mantiene igual) ... */
+/* ... (El código CSS de escritorio se mantiene igual) ... */
 
 /* --- AJUSTES PARA MÓVILES (MAX 768px) --- */
 @media (max-width: 768px) {
-    
-    /* === MODIFICACIÓN 1: AJUSTES DEL HEADER === */
+    /* === HEADER AJUSTES === */
     header {
         justify-content: space-around;
         padding: 5px 10px;
-        /* ************************************** */
-        /* Eliminamos la superposición en móvil */
-        position: relative; /* ¡CLAVE! Cambia de 'absolute' a 'relative' */
-        top: auto; /* Reseteamos la propiedad 'top' */
-        /* ************************************** */
-        /* Aseguramos que la opacidad sea la misma en móvil, aunque ahora es un bloque normal */
-        background: rgba(155, 158, 144, 0.9); /* Subimos la opacidad para que parezca una franja sólida */
-        backdrop-filter: none; /* Desactivamos el filtro de desenfoque si lo hay */
     }
-    
-    /* === MODIFICACIÓN 2: AJUSTES DEL CARRUSEL === */
-    .carousel {
-        /* ************************************** */
-        /* Ahora el carrusel comienza después del header, así que necesita una altura normal. */
-        height: 200px; /* La altura reducida se mantiene */
-        /* ************************************** */
-        
-        /* El texto aún necesita estar centrado sobre la imagen del carrusel */
-        position: relative; /* Lo mantenemos relativo para que ::before funcione */
-    }
-    
-    .carousel::before {
-        /* Mantenemos la capa oscura para que el texto sea legible sobre la imagen */
-        background: rgba(0,0,0,0.6); 
-        z-index: 1; 
-    }
-
-    /* ... (El resto de los estilos móviles para imágenes y texto se mantienen igual) ... */
-
     header img {
         height: 40px; 
     }
     header img:nth-child(2) {
         height: 50px; 
     }
-    
-    .carousel img {
-        object-fit: cover; 
+
+    .carousel {
+        /* Reducimos la altura para que el recorte por 'cover' sea menor y parezca más horizontal */
+        height: 200px; /* Reducción significativa */
     }
     
-    carousel h1 { 
+    /* Volvemos a 'cover' para que no haya espacios negros */
+    .carousel img {
+        object-fit: cover; /* Vuelve al comportamiento original de escritorio */
+    }
+    
+    /* ****************************************************** */
+    /* *** MODIFICACIÓN CLAVE PARA EL MÓVIL (tu solicitud) ** */
+    /* ****************************************************** */
+    /* 1. ELIMINAR LA CAPA OSCURA GLOBAL DEL CARRUSEL */
+    .carousel::before {
+        /* Hacemos la capa completamente transparente en móvil */
+        background: transparent; 
+    }
+    
+    /* 2. ASEGURAR QUE EL TEXTO ESTÉ POR ENCIMA DE LA IMAGEN */
+    /* El z-index de h1 y p ya es 2, y el de la imagen es 0 o 1 (por defecto o .active), 
+       así que esto se mantiene. Simplemente cambiamos el color/sombra para contraste. */
+
+    .carousel h1 { 
         font-size: 28px; 
         top: 50%; 
         transform: translate(-50%, -50%); 
         white-space: normal;
         line-height: 1.2; 
+        /* Para mejorar la legibilidad del texto en móvil sin la capa oscura: */
+        color: #fff; /* Asegura el color blanco */
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.9), -1px -1px 4px rgba(0,0,0,0.9); /* Sombra más fuerte y doble */
     }
     
     .carousel p { 
         font-size: 16px;
         top: calc(50% + 20px); 
         transform: translateX(-50%); 
+        /* Para mejorar la legibilidad del texto en móvil sin la capa oscura: */
+        color: #D4AF37; /* Mantenemos el color dorado */
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.9), -1px -1px 4px rgba(0,0,0,0.9); /* Sombra más fuerte y doble */
     }
+    /* ****************************************************** */
     
     /* === TÍTULO H3 AJUSTES === */
     h3 {
@@ -419,6 +416,7 @@
 
 </body>
 </html>
+
 
 
 
