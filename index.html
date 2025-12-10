@@ -263,26 +263,41 @@
                 height: 50px; 
             }
 
-            /* === CARRUSEL MODIFICADO PARA IMAGEN COMPLETA === */
+            /* === CARRUSEL MODIFICADO: MÁS ANCHO Y SIN ESPACIOS === */
             
             .carousel {
-                /* Aumentamos la altura para mejorar la visibilidad sin que sea demasiado grande */
-                height: 350px; 
+                /* Reducimos la altura para que el recorte por 'cover' sea menor y parezca más horizontal */
+                height: 200px; /* Reducción significativa */
             }
             
-            /* Cambiamos a 'contain' para mostrar la imagen completa, conservando su relación de aspecto. */
+            /* Volvemos a 'cover' para que no haya espacios negros (eliminando la línea object-fit: contain) */
             .carousel img {
-                object-fit: contain; 
+                 object-fit: cover; /* Vuelve al comportamiento original de escritorio */
             }
             
+            /* Ajustes de centrado para TÍTULOS */
+            
+            /* CENTRADO VERTICAL Y HORIZONTAL DE H1 */
             .carousel h1 { 
-                font-size: 30px; /* Reducimos el tamaño de la fuente para que no estorbe */
-                top: 15%; /* Subimos el título */
+                font-size: 28px; 
+                /* Usamos top: 50% y transform: translateY(-50%) para centrado vertical perfecto */
+                top: 50%; 
+                transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
                 white-space: normal;
+                line-height: 1.2; /* Asegura que si rompe línea, se vea mejor */
             }
+            
+            /* CENTRADO VERTICAL Y HORIZONTAL DE P, AJUSTADO PARA QUE QUEDE DEBAJO DE H1 */
             .carousel p { 
-                font-size: 18px; /* Reducimos el tamaño de la fuente */
-                top: 25%; /* Subimos el subtítulo */
+                font-size: 16px;
+                /* Colocamos el subtítulo debajo del título principal */
+                top: calc(50% + 20px); /* 50% + un pequeño margen para bajarlo */
+                transform: translateX(-50%); /* Solo centrado horizontal */
+            }
+            
+            /* Eliminamos la capa oscura del carrusel para mejorar el contraste del texto en caso de mucho recorte */
+            .carousel::before {
+                background: rgba(0,0,0,0.6); /* Oscurece un poco más para que el texto blanco se lea mejor */
             }
             
             /* === TÍTULO H3 AJUSTES === */
