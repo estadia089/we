@@ -248,75 +248,89 @@
         footer img:hover {
             transform: scale(1.2);
         }
+/* ... (Todo el CSS de escritorio se mantiene igual) ... */
 
-        /* --- AJUSTES PARA MÓVILES (MAX 768px) --- */
-        @media (max-width: 768px) {
-            /* === HEADER AJUSTES === */
-            header {
-                justify-content: space-around;
-                padding: 5px 10px;
-            }
-            header img {
-                height: 40px; 
-            }
-            header img:nth-child(2) {
-                height: 50px; 
-            }
+/* --- AJUSTES PARA MÓVILES (MAX 768px) --- */
+@media (max-width: 768px) {
+    
+    /* === MODIFICACIÓN 1: AJUSTES DEL HEADER === */
+    header {
+        justify-content: space-around;
+        padding: 5px 10px;
+        /* ************************************** */
+        /* Eliminamos la superposición en móvil */
+        position: relative; /* ¡CLAVE! Cambia de 'absolute' a 'relative' */
+        top: auto; /* Reseteamos la propiedad 'top' */
+        /* ************************************** */
+        /* Aseguramos que la opacidad sea la misma en móvil, aunque ahora es un bloque normal */
+        background: rgba(155, 158, 144, 0.9); /* Subimos la opacidad para que parezca una franja sólida */
+        backdrop-filter: none; /* Desactivamos el filtro de desenfoque si lo hay */
+    }
+    
+    /* === MODIFICACIÓN 2: AJUSTES DEL CARRUSEL === */
+    .carousel {
+        /* ************************************** */
+        /* Ahora el carrusel comienza después del header, así que necesita una altura normal. */
+        height: 200px; /* La altura reducida se mantiene */
+        /* ************************************** */
+        
+        /* El texto aún necesita estar centrado sobre la imagen del carrusel */
+        position: relative; /* Lo mantenemos relativo para que ::before funcione */
+    }
+    
+    .carousel::before {
+        /* Mantenemos la capa oscura para que el texto sea legible sobre la imagen */
+        background: rgba(0,0,0,0.6); 
+        z-index: 1; 
+    }
 
-            .carousel {
-                /* Reducimos la altura para que el recorte por 'cover' sea menor y parezca más horizontal */
-                height: 200px; /* Reducción significativa */
-            }
-            
-            /* Volvemos a 'cover' para que no haya espacios negros (eliminando la línea object-fit: contain) */
-            .carousel img {
-                 object-fit: cover; /* Vuelve al comportamiento original de escritorio */
-            }
-            
-            /* Ajustes de centrado para TÍTULOS */
-            
-            /* CENTRADO VERTICAL Y HORIZONTAL DE H1 */
-            .carousel h1 { 
-                font-size: 28px; 
-                /* Usamos top: 50% y transform: translateY(-50%) para centrado vertical perfecto */
-                top: 50%; 
-                transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
-                white-space: normal;
-                line-height: 1.2; /* Asegura que si rompe línea, se vea mejor */
-            }
-            
-            /* CENTRADO VERTICAL Y HORIZONTAL DE P, AJUSTADO PARA QUE QUEDE DEBAJO DE H1 */
-            .carousel p { 
-                font-size: 16px;
-                /* Colocamos el subtítulo debajo del título principal */
-                top: calc(50% + 20px); /* 50% + un pequeño margen para bajarlo */
-                transform: translateX(-50%); /* Solo centrado horizontal */
-            }
-            
-            /* Eliminamos la capa oscura del carrusel para mejorar el contraste del texto en caso de mucho recorte */
-            .carousel::before {
-                background: rgba(0,0,0,0.6); /* Oscurece un poco más para que el texto blanco se lea mejor */
-            }
-            
-            /* === TÍTULO H3 AJUSTES === */
-            h3 {
-                font-size: 1.8em; 
-                margin: 20px 10px 15px 10px; 
-                padding: 0 10px;
-            }
+    /* ... (El resto de los estilos móviles para imágenes y texto se mantienen igual) ... */
 
-            /* === MENÚS AJUSTES === */
-            .menus {
-                padding: 10px;
-            }
-            .menus div {
-                min-height: 120px;
-                padding: 15px;
-            }
-            .menus div:hover {
-                transform: scale(1.02); 
-            }
-        }
+    header img {
+        height: 40px; 
+    }
+    header img:nth-child(2) {
+        height: 50px; 
+    }
+    
+    .carousel img {
+        object-fit: cover; 
+    }
+    
+    /* Ajustes de centrado para TÍTULOS */
+    .carousel h1 { 
+        font-size: 28px; 
+        top: 50%; 
+        transform: translate(-50%, -50%); 
+        white-space: normal;
+        line-height: 1.2; 
+    }
+    
+    .carousel p { 
+        font-size: 16px;
+        top: calc(50% + 20px); 
+        transform: translateX(-50%); 
+    }
+    
+    /* === TÍTULO H3 AJUSTES === */
+    h3 {
+        font-size: 1.8em; 
+        margin: 20px 10px 15px 10px; 
+        padding: 0 10px;
+    }
+
+    /* === MENÚS AJUSTES === */
+    .menus {
+        padding: 10px;
+    }
+    .menus div {
+        min-height: 120px;
+        padding: 15px;
+    }
+    .menus div:hover {
+        transform: scale(1.02); 
+    }
+}
     </style>
 </head>
 <body>
@@ -406,6 +420,7 @@
 
 </body>
 </html>
+
 
 
 
