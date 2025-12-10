@@ -263,8 +263,6 @@
                 height: 50px; 
             }
 
-            /* === CARRUSEL MODIFICADO: MÁS ANCHO Y SIN ESPACIOS === */
-            
             .carousel {
                 /* Reducimos la altura para que el recorte por 'cover' sea menor y parezca más horizontal */
                 height: 200px; /* Reducción significativa */
@@ -291,7 +289,7 @@
             .carousel p { 
                 font-size: 16px;
                 /* Colocamos el subtítulo debajo del título principal */
-                top: 90%; /* 50% + un pequeño margen para bajarlo */
+                top: calc(50% + 20px); /* 50% + un pequeño margen para bajarlo */
                 transform: translateX(-50%); /* Solo centrado horizontal */
             }
             
@@ -408,5 +406,6 @@
 
 </body>
 </html>
+
 
 
